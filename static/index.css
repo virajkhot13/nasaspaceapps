@@ -1,0 +1,185 @@
+/* Reset some default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333; /* Set default text color */
+}
+
+/* Header styles */
+.gradient-header {
+    background-image: linear-gradient(to right, #4fc3f7, #a0d8ef);
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.logo-container {
+    margin: 0; /* Remove negative margin */
+}
+
+.logo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Navigation styles */
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333; /* Set text color for navigation links */
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links li a:hover {
+    color: #007bff; /* Change text color on hover */
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Login button styles */
+.login-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.login-button:hover {
+    background-color: #00438a;
+}
+
+/* Main content styles */
+.main-content {
+    text-align: center;
+    padding: 50px;
+}
+
+/* Container styles */
+.search-container, .info-container, .section {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.search-container:hover, .info-container:hover, .section:hover {
+    transform: scale(1.02);
+}
+
+/* Heading styles */
+h2 {
+    margin-top: 0;
+    color: #007bff; /* Set heading color */
+}
+
+/* Input styles */
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Button styles */
+button#searchButton {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#searchButton:hover {
+    background-color: #408bdb;
+}
+
+/* Slider styles */
+.slider {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.slide {
+    flex: 0 0 33.33%;
+    padding: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-right: 20px;
+    background-color: #f4f4f4;
+}
+
+.slide:hover {
+    transform: scale(1.05);
+}
+
+.slide:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+.slide:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Footer navigation styles */
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer li a:hover {
+    text-decoration: underline;
+    color: #4CAF50;
+}
