@@ -4,78 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clever Water</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-    <link rel="stylesheet" href="index.css">
-    <script src="{{ url_for('static', filename='index.js') }}"></script>
 </head>
 <body>
-    <header class="gradient-header">
-        <div class="logo-container">
-            <img src="{{ url_for('static', filename='Clever (1).png') }}" alt="Logo">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='Clever (1).png') }}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                Clever Water
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about_us.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="clean_water.html">Clean Water</a></li>
+                    <li class="nav-item"><a class="nav-link" href="endangered_animal.html">Endangered Species</a></li>
+                    <li class="nav-item"><a class="nav-link" href="clever_device.html">Clever Device</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact_us.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+                </ul>
+            </div>
         </div>
-        <nav class="nav-links">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about_us.html">About Us</a></li>
-                <li><a href="clean_water.html">Clean Water</a></li>
-                <li><a href="endangered_animal.html">Endangered Species</a></li>
-                <li><a href="clever_device.html">Clever Device</a></li>
-                <li><a href="contact_us.html">Contact</a></li>
-                <li><a href="{{ url_for('login') }}" id="loginButton">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+    </nav>
 
-    <section class="main-content">
-        <h2>Find Clean Water Sources Near You</h2>
-        <div class="search-container">
-            <form method="POST" action="/search">
-                <input type="text" placeholder="Enter your location" name="location" id="locationInput">
-                <button type="submit" id="searchButton">Search</button>
-            </form>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+                <h1 class="mb-4">Find Clean Water Sources</h1>
+                <form method="POST" action="/search" class="d-flex">
+                    <input type="text" class="form-control me-2" placeholder="Enter a location (e.g., Pune)" name="location" id="locationInput">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
         </div>
-        <div class="info-container">
-            <h2>Learn about endangered species in your local water bodies.</h2>
-        </div>
-    </section>
 
-    <section class="main-content">
-        <div class="section about-us">
-            <h2>About Us</h2>
-            <p>We are dedicated to providing information about clean water sources and raising awareness about endangered water species.</p>
-            <a href="about_us.html" class="about-us-button">Click Here</a>
+        <div class="row mt-5">
+            <div class="col-md-10 offset-md-1">
+                <h2 class="text-center mb-4">Rivers in India</h2>
+                <div class="row">
+                    {% for river in rivers %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ river }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-        <div class="section what-is-clean-water">
-            <h2>What is Clean Water</h2>
-            <p>Clean water refers to water that is safe for consumption and free from pollutants. It is essential for the well-being of all living organisms.</p>
-            <a href="clean_water.html" class="clean-water-button">Click Here</a>
-        </div>
-        <div class="section endangered-species">
-            <h2>Endangered Species</h2>
-            <p>Learn about the various species of aquatic life that are at risk of extinction due to habitat destruction and pollution.</p>
-            <a href="endangered_animal.html" class="endangered-animal-button">Click Here</a>
-        </div>
-        <div class="section info-container">
-            <h2>Endangered Water Species</h2>
-            <p>Learn about endangered species in your local water bodies.</p>
-        </div>
-        <div class="section info-container">
-            <h2>Our Clever Device</h2>
-            <p>The smart device</p>
-        </div>
-    </section>
+    </div>
 
-    <footer>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about_us.html">About</a></li>
-            <li><a href="clean_water.html">Clean Water</a></li>
-            <li><a href="endangered_animal.html">Endangered Species</a></li>
-            <li><a href="clever_device.html">Clever Device</a></li>
-            <li><a href="contact_us.html">Contact Us</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-        </ul>
-        <p>2023 Clever Water. All Rights Reserved</p>
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        <p>&copy; 2023 Clever Water. All Rights Reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

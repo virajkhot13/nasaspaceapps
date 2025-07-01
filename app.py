@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, jsonify
 import pandas as pd
 
 app = Flask(__name__)
-app = Flask(__name__, static_url_path='/static')
 
 # Load water quality data from CSV file
 water_quality_data = pd.read_csv('water_quality.csv', encoding='latin-1')
@@ -10,7 +9,9 @@ water_quality_data = pd.read_csv('water_quality.csv', encoding='latin-1')
 # Define routes for your web pages
 @app.route('/')
 def index():
-    return render_template('index.html')
+    # Get a sample of river locations to display on the home page
+    sample_rivers = water_quality_data['LOCATIONS'].dropna().unique()[:10]
+    return render_template('index.html', rivers=sample_rivers)
 
 @app.route('/about_us.html')
 def about_us():
@@ -60,8 +61,8 @@ def search():
         # Get the location input from the form data
         location = request.form.get('location')
 
-        # Filter the water quality data based on the entered location
-        filtered_data = water_quality_data[water_quality_data['LOCATIONS'] == location]
+        # Filter the water quality data based on the entered location (case-insensitive partial match)
+        filtered_data = water_quality_data[water_quality_data['LOCATIONS'].str.contains(location, case=False, na=False)]
 
         # Check if any data is found
         if filtered_data.empty:
@@ -80,7 +81,7 @@ def search():
         }
 
         # Find all rivers in the given location
-        rivers_in_location = filtered_data['STATION CODE'].tolist()
+        rivers_in_location = filtered_data['LOCATIONS'].tolist()
 
         return render_template('search_result.html', location=location, water_quality=water_quality, rivers=rivers_in_location)
     except Exception as e:
