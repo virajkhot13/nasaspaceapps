@@ -13,7 +13,7 @@ This web application provides information about water quality in various locatio
 
 1.  Clone the repository:
     ```bash
-    git clone https://github.com/your-username/nasaspaceapps.git
+    git clone https://github.com/virajkhot13/nasaspaceapps.git
     ```
 2.  Install the required Python packages:
     ```bash
