@@ -1,7 +1,7 @@
 # Clever Water: A Water Quality and Information App
 
 This web application provides information about water quality in various locations, with a focus on rivers in India. It also provides information about endangered aquatic species and a conceptual "Clever Device" for water quality monitoring.
-
+live at - https://clever-water-a-water-quality-and.onrender.com/
 ## Features
 
 *   **Water Quality Search:** Search for water quality data by location. The search is case-insensitive and supports partial matches.
